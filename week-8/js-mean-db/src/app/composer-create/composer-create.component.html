@@ -1,0 +1,28 @@
+<div fxLayout="column" style="margin-top: 75px;">
+  <mat-card class="mat-elevation-z8" style="width: 50%;">
+    <mat-card-title>Create new Composer</mat-card-title>
+    <form (ngSubmit)="createComposer()" [formGroup]="form" #composerForm>
+      <mat-card-content>
+        <mat-form-field>
+          <input type="text" matInput [formControl]="form.controls['firstName']" placeholder="First Name..." />
+        </mat-form-field>
+        <small style="color: red;" *ngIf="form.controls['firstName'].hasError('required') && form.controls['firstName'].touched">
+          First name is a required field.
+        </small>
+
+        <br />
+        <mat-form-field>
+          <input type="text" matInput [formControl]="form.controls['lastName']" placeholder="Last Name..." />
+        </mat-form-field>
+        <small style="color: red;" *ngIf="form.controls['lastName'].hasError('required') && form.controls['lastName'].touched">
+          Last name is a required field.
+        </small>
+      </mat-card-content>
+
+      <mat-card-actions align="end">
+        <button mat-raised-button color="accent" (click)="goBack()">Cancel</button>
+        <button mat-raised-button [disabled]="!form.valid" color="primary">Create</button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>

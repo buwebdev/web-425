@@ -1,0 +1,8 @@
+.form-example {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-example > * {
+  width: 65%;
+}

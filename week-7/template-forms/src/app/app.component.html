@@ -1,0 +1,25 @@
+<div class="form-example">
+  <mat-card>
+    <form class="form-example" #f="ngForm" (ngSubmit)="onSubmit(f.value); f.reset()">
+      <mat-form-field>
+        <input matInput placeholder="Username" ngModel name="username" type="text"/>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="SSN" ngModel name="ssn" type="text"/>
+      </mat-form-field>
+
+      <div class="form-example" ngModelGroup="passwordsGroup">
+        <mat-form-field>
+          <input matInput placeholder="Password" name="password" ngModel type="password" />
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Confirm Password" name="pconfirm" ngModel type="password" />
+        </mat-form-field>
+      </div>
+
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+    </form>
+  </mat-card>
+</div>

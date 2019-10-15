@@ -1,0 +1,15 @@
+.error {
+  color: red;
+}
+.hasError {
+  border: 1px solid red;
+}
+
+.form-example {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-example > * {
+  width: 65%;
+}

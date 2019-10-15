@@ -1,0 +1,17 @@
+.form-container {
+  width: 100%;
+}
+
+.form-card {
+  width: 75%;
+  margin: 0 auto;
+}
+
+.form-title {
+  text-align: center;
+  font-weight: lighter;
+}
+
+h2 {
+  font-weight: lighter;
+}

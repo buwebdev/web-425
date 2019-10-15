@@ -1,0 +1,16 @@
+.logo {
+  color: white;
+  text-decoration: none;
+}
+
+.log:hover {
+  cursor: pointer;
+}
+
+mat-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100% !important;
+}

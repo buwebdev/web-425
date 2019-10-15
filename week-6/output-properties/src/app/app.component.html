@@ -1,0 +1,3 @@
+
+AppComponent received: {{ priceQuote?.stockSymbol }} {{ priceQuote?.lastPrice | currency: 'USD' }}
+<app-price-quote (lastPrice)="priceQuoteHandler($event)"></app-price-quote>

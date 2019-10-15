@@ -1,0 +1,13 @@
+
+/* Form Styles */
+.frm-login { width: 50%;  margin: 0 auto; }
+.frm-login-panel { border: 1px solid black; }
+.frm-login-header { background-color: red; }
+.frm-login-toolbar { background-color: red; color: white; }
+.frm-login-body { display: flex; flex-direction: column; margin-top: 15px; }
+.btn-login { background-color: gray; color: white; }
+.frm-login-actions { text-align: right; }
+/* Global */
+.wrapper { width: 100%; margin-top: 10%; }
+
+

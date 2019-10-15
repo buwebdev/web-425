@@ -1,0 +1,30 @@
+<div fxLayout="column" style="margin-top: 75px;">
+  <mat-card class="mat-elevation-z0" style="width: 30%;">
+    <mat-card-content>
+      <button mat-flat-button routerLink="/composers" color="primary">Create</button>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div fxLayout="column" style="margin-top: 2px;">
+  <mat-card class="mat-elevation-z0">
+    <mat-card-title>Composer List</mat-card-title>
+    <mat-card-content>
+      <table style="width: 50%;" mat-table [dataSource]="composers" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="firstname">
+          <th mat-header-cell *matHeaderCellDef>First Name</th>
+          <td mat-cell *matCellDef="let element"><a routerLink="/composers/{{ element._id }}">{{ element.firstName }}</a></td>
+        </ng-container>
+
+        <ng-container matColumnDef="lastname">
+          <th mat-header-cell *matHeaderCellDef>Last Name</th>
+          <td mat-cell *matCellDef="let element">{{ element.lastName }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</div>
