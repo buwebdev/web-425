@@ -1,0 +1,15 @@
+.signin-container {
+  width: 35%;
+  margin: 15% auto;
+}
+
+.signin-container > mat-card-title, mat-card-subtitle {
+  text-align: center;
+}
+
+.msg-error {
+  margin: 10px 0px;
+  padding: 12px;
+  color: #D8000C;
+  background-color: #FFD2D2;
+}

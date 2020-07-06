@@ -1,0 +1,18 @@
+{
+  "name": "ts-examples",
+  "version": "1.0.0",
+  "description": "TypeScript examples",
+  "main": "index.js",
+  "scripts": {
+    "person-class": "tsc && node dist/person.class.js",
+    "vehicle-class": "tsc && node dist/vehicle.class.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Professor Krasso",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^13.13.1",
+    "tslint": "^6.1.1",
+    "typescript": "^3.8.3"
+  }
+}

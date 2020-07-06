@@ -1,0 +1,14 @@
+isbn: 0345339681
+title: The Hobbit
+
+isbn: 0261103571
+title: The Fellowship of the Ring
+
+isbn: 1514297272
+title: The Two Towers
+
+isbn: 1514298139
+title: The Return of the King
+
+isbn: 9780593099322
+title: Dune

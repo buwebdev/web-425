@@ -1,0 +1,32 @@
+<div fxLayout="column">
+
+  <mat-card fxFlex class="mat-elevation-z8 signin-container">
+    <mat-card-title>Student Sign In</mat-card-title>
+    <mat-card-subtitle>You must enter a valid student ID to proceed.</mat-card-subtitle>
+
+    <mat-card-content>
+      <div class="msg-error" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </div>
+
+      <mat-card class="mat-elevation-z0" fxLayout="column" fxLayoutGap="10px">
+
+        <form [formGroup]="signinForm" (ngSubmit)="onSubmit(); signinForm.reset()">
+          <mat-card-content>
+
+            <mat-form-field fxFlex appearance="fill">
+              <mat-label for="txtStudentId" id="lblStudentId">Student ID</mat-label>
+              <input type="text" matInput formControlName="studentId" id="txtStudentId" name="txtStudentId" />
+            </mat-form-field>
+          </mat-card-content>
+
+          <mat-card-actions>
+            <button type="submit" fxFlex mat-raised-button color="primary">Submit</button>
+          </mat-card-actions>
+        </form>
+      </mat-card>
+
+    </mat-card-content>
+  </mat-card>
+
+</div>
