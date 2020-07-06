@@ -15,13 +15,17 @@ Prerequisite: None
 
 Carefully read the assigned chapters, videos, and narrative I've included under each exercise and assignment.
 
-Most exercises and assignments have runnable sample code so you can visually see the concept "in action."  Assignments are broken into "milestones" and each "milestone" builds on the last.
+Most exercises and assignments have accompanying solutions, so you can visually see the concepts in action. 
+The course consist of three main projects: composer-app, gpa-calculator-app, and in-n-out-books.  
+You will extend the functionality of these projects by applying the concepts you are shown every week. 
 
-Approach every week from top-to-bottom and do not move to the next assignment/exercise without fully understanding the previous.
+Approach this course from top-to-bottom and do not move on to the next exercise or assignment without fully understanding the previous one.  The Reading & Videos section are critical to learning the material.  Do not just scan over what I've provided.  
+
+
 
 ```bash
-git clone https://github.com/rrkrasso/web-425-code-snippets.git
-cd web-425-code-snippets
+git clone https://github.com/buwebdev/web-425.git
+cd web-425
 ```
 
 ## Textbooks GitHub Repository
