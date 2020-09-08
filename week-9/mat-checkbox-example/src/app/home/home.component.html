@@ -1,0 +1,25 @@
+<div fxLayout="column" fxLayoutGap="10px">
+    <h1 fxFlex style="text-align: center;">Checkbox Form Example</h1>
+
+    <div fxFlex>
+        <mat-card style="width: 50%; margin: 0 auto;">
+            <form [formGroup]="fruitForm" (ngSubmit)="onSubmit(); fruitForm.reset();">
+                <mat-card-content>
+                    <div fxLayout="column" fxLayoutGap="10px">
+
+                        <div fxFlex formArrayName="fruitOptions" *ngFor="let fruit of fruitForm.controls.fruitOptions['controls']; let i = index">
+                            <mat-checkbox formControlName="{{i}}">
+                                {{ fruits[i].id }}: {{ fruits[i].name }}
+                              </mat-checkbox>
+                        </div>
+
+                    </div>
+                </mat-card-content>
+
+                <mat-card-actions align="end">
+                    <button mat-raised-button color="primary">Submit</button>
+                </mat-card-actions>
+            </form>
+        </mat-card>
+    </div>
+</div>
