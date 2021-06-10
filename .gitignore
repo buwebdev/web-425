@@ -60,4 +60,6 @@ typings/
 # VS Code and WebStorm
 .idea/
 .vscode/
+.DS_Store
+*/DS_Store
 

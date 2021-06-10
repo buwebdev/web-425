@@ -25,11 +25,12 @@ export class Composer {
     return this.composers;
   }
 
-  getComposer(composerId: number) {
+  getComposer(composerId: number) : IComposer {
     for (let composer of this.composers) {
       if (composer.composerId === composerId) {
         return composer;
       }
     }
+    return {} as IComposer;
   }
 }
