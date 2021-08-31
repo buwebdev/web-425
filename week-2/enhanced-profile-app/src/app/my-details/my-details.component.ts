@@ -12,7 +12,7 @@ export default class Person {
   favoriteFood: string;
   favoriteColor: string;
   keywords = [
-    "#TypeScript", "#2020", "#CodingWithAngular", "#ngOmaha"
+    "#TypeScript", `#${new Date().getFullYear()}`, "#CodingWithAngular", "#ngOmaha"
   ]
 
   constructor(fullName: string, favoriteFood: string, favoriteColor: string) {
