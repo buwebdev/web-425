@@ -1,0 +1,74 @@
+<div style="margin-top: 50px;">
+    <div fxLayout="column" fxLayoutGap="10px" style="margin: 0 auto; width: 35%;">
+
+        <div fxFlex>
+            <h1 class="text-center">Welcome to the Restaurant App!</h1>
+        </div>
+
+        <div fxFlex>
+            <mat-card>
+                <mat-card-title class="text-center text-primary">Restaurant Menu</mat-card-title>
+
+                <br />
+
+                <mat-card-content>
+
+                    <form #checkboxForm="ngForm" (submit)="submit()">
+                        <div fxLayout="row wrap" fxLayoutGap="15px grid">
+
+                            <div fxFlex="50%">
+                                <mat-card class="mat-elevation-z4">
+                                    <mat-card-title class="text-center text-primary">Beverages</mat-card-title>
+                                    <mat-card-content>
+                                        <div *ngFor="let item of beverages">
+                                            <mat-checkbox value="{{item.amount}}" [(ngModel)]="item.checked" [name]="item.title">
+                                                {{ item.title }}
+                                            </mat-checkbox>
+                                        </div>
+                                    </mat-card-content>
+                                </mat-card>
+                            </div>
+
+                            <div fxFlex="50%">
+                                <mat-card class="mat-elevation-z4">
+                                    <mat-card-title class="text-center text-primary">Main Courses</mat-card-title>
+                                    <mat-card-content>
+                                        <div *ngFor="let item of mainCourses">
+                                            <mat-checkbox value="{{item.amount}}" [(ngModel)]="item.checked" [name]="item.title">
+                                                {{ item.title }}
+                                            </mat-checkbox>
+                                        </div>
+                                    </mat-card-content>
+                                </mat-card>
+                            </div>
+
+                            <div fxFlex="50%" fxFlexOffset="50%">
+                                <mat-card class="mat-elevation-z4">
+                                    <mat-card-title class="text-center text-primary">Desserts</mat-card-title>
+                                    <mat-card-content>
+                                        <div *ngFor="let item of desserts">
+                                            <mat-checkbox value="{{item.amount}}" [(ngModel)]="item.checked" [name]="item.title">
+                                                {{ item.title }}
+                                            </mat-checkbox>
+                                        </div>
+
+                                        <br />
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>Tip Amount</mat-label>
+                                            <input matInput [(ngModel)]="bill.tipAmount" type="number" name="tip" />
+                                        </mat-form-field>
+                                    </mat-card-content>
+
+                                    <mat-card-actions align="end">
+                                        <button mat-flat-button color="accent">Place Order</button>
+                                    </mat-card-actions>
+                                </mat-card>
+                            </div>
+                            
+                        </div>
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

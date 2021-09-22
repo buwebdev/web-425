@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>Order Summary</h2>
+
+<div mat-dialog-content>
+    <div>
+        <strong>Menu items:</strong> 
+        <div *ngFor="let item of bill.menuItems">
+            &nbsp;{{ item.title }} ({{item.amount | currency}})
+        </div>  
+        <br />
+        Subtotal: {{ bill.getMenuTotal() | currency }}
+    </div>
+
+    <hr />
+
+    <p>
+        Tip Amount: {{ bill.getTipAmount() | currency }}
+    </p>
+
+    <hr />
+
+    <p style="font-weight: bold;">Invoice total: {{ bill.getBillTotal() | currency }}</p>
+</div>
+
+<div mat-dialog-actions align="end">
+    <button mat-raised-button matDialogClose="cancel" color="primary">Cancel order</button>
+    <button mat-raised-button matDialogClose="confirm" color="accent">Confirm order</button>
+</div>
