@@ -7,30 +7,58 @@ Web Development [Degree](http://www.bellevue.edu/degrees/bachelor/web-developmen
 
 ## Course Description
 
-Learn Angular with TypeScript by building real-world applications.  This course covers web application frameworks and how to build client-rich applications using Angular with TypeScript.  Following an intensive, hands-on style format, students will learn how to write code in TypeScript, communicate with middleware platforms using HTTP and WebSocket protocols, automate the building and deployment processes using the Angular CLI, organizing navigation in a Single Page Application (SPAs), learn industry best practices, unit-testing, and deployment.  GitHub is used to host and share coding projects.
+This course introduces the student to web application frameworks and the advantages of using them.  Components of a framework are defined and projects are used to develop skills in web 
+application development.  Security and unit testing are addressed as it applies to web application frameworks.  GitHub is used to host coding projects.
 
-Prerequisite: None
+Prerequisite: WEB 200, WEB 231, WEB 330, and WEB 340
+
+## Course Objectives
+Students who successfully complete this course should be able to: 
+
+- Examine Angular's architecture and components 
+- Compare routing strategies in Angular applications
+- List the differences between reactive and template-driven forms
+- Measure the effectiveness of unit tests in Angular Applications
+- Evaluate data fetching with HttpClient
+- Recommend strategies for modular Angular development
+
+## Topic Outline
+<ol type="I">
+  <li>
+    Angular Basics
+      <ol type="A">
+        <li>Architecture and Components</li>
+        <li>Angular CLI</li>
+        <li>Project Setup</li>
+        <li>Standalone Components and Modules</li>
+      </ol>
+  </li>
+  <li>
+    Forms and Data
+    <ol type="A">
+      <li>Reactive vs. Template-Driven Forms</li>
+      <li>Form Validation</li>
+      <li>Data Fetching with HttpClient</li>
+      <li>Routing and Navigation</li>
+    </ol>
+  </li>
+  <li>
+    Testing and Deployment
+    <ol type="A">
+      <li>Karma and Jasmine</li>
+      <li>Testing Components and Services</li>
+      <li>Deployment</li>
+    </ol>
+  </li>
+</ol>
 
 ## Repository Overview
 
-Carefully read the assigned chapters, videos, and narrative I've included under each exercise and assignment.
+Carefully read the assigned chapters, videos, and narrative I've included under each assignment.
 
-Most exercises and assignments have accompanying solutions, so you can visually see the concepts in action. 
-The course consist of three main projects: composer-app, gpa-calculator-app, and in-n-out-books.  
-You will extend the functionality of these projects by applying the concepts you are shown every week. 
-
-Approach this course from top-to-bottom and do not move on to the next exercise or assignment without fully understanding the previous one.  The Reading & Videos section are critical to learning the material.  Do not just scan over what I've provided.  
-
-
+Approach this course from top-to-bottom and do not move on to the assignment without fully understanding the previous one.  The "Reading & Videos" section is critical to learning the material.  Do not just scan over what's been provided. 
 
 ```bash
 git clone https://github.com/buwebdev/web-425.git
 cd web-425
-```
-
-## Textbooks GitHub Repository
-
-```bash
-git clone https://github.com/Farata/angular2typescript.git
-cd angular2typescript
 ```
