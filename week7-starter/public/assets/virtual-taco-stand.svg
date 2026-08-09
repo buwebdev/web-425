@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 120" role="img" aria-labelledby="brand-title brand-desc">
+  <title id="brand-title">Virtual Taco Stand</title>
+  <desc id="brand-desc">A warm orange taco emblem beside the Virtual Taco Stand wordmark.</desc>
+  <defs>
+    <linearGradient id="brand-ring" x1="18" y1="17" x2="100" y2="104" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFCB73"/>
+      <stop offset="1" stop-color="#F77B28"/>
+    </linearGradient>
+  </defs>
+  <circle cx="60" cy="60" r="49" fill="#211E1A" stroke="url(#brand-ring)" stroke-width="2"/>
+  <path d="M27 67c4-20 17-33 33-33s29 13 33 33H27Z" fill="none" stroke="#FFAD42" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M34 68h52" stroke="#FFF8ED" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="46" cy="57" r="3.5" fill="#F77B28"/>
+  <circle cx="59" cy="50" r="3.5" fill="#FFF8ED"/>
+  <circle cx="73" cy="57" r="3.5" fill="#F77B28"/>
+  <path d="M43 78c10 7 24 7 34 0" fill="none" stroke="#C8BAAA" stroke-width="3" stroke-linecap="round"/>
+  <text x="130" y="46" fill="#FFAD42" font-family="Avenir Next, Segoe UI, sans-serif" font-size="18" font-weight="700" letter-spacing="7">VIRTUAL</text>
+  <text x="128" y="87" fill="#FFF8ED" font-family="Avenir Next, Segoe UI, sans-serif" font-size="43" font-weight="800" letter-spacing="1">TACO STAND</text>
+  <path d="M131 101h427" stroke="#3C352D" stroke-width="2"/>
+  <path d="M131 101h102" stroke="#F77B28" stroke-width="2"/>
+</svg>

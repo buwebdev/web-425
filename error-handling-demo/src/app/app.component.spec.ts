@@ -1,29 +1,33 @@
 import { TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { AppComponent } from './app.component';
+import { routes } from './app.routes';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent],
+      providers: [provideRouter(routes)]
     }).compileComponents();
   });
 
-  it('should create the app', () => {
+  it('creates the application shell', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+
+    expect(fixture.componentInstance).toBeTruthy();
   });
 
-  it(`should have the 'error-handling-demo' title`, () => {
+  it('uses the Error Handling Demo title', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('error-handling-demo');
+
+    expect(fixture.componentInstance.title).toBe('Error Handling Demo');
   });
 
-  it('should render title', () => {
+  it('renders navigation for all three strategies', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, error-handling-demo');
+    const links = fixture.nativeElement.querySelectorAll('.w4-nav-link');
+
+    expect(links.length).toBe(4);
   });
 });

@@ -4,22 +4,47 @@ import { LoggerService } from '../logger.service';
 @Component({
   selector: 'app-component-logger-error-handling',
   standalone: true,
-  imports: [],
   template: `
-    <h1>
-      Logger Example
-    </h1>
-    <p>This is an example of a logger service that logs messages to the console.</p>
-    <p>Open the web browser console window to view the messages.</p>
-  `,
-  styles: `
+    <section class="w4-section" aria-labelledby="logger-heading">
+      <p class="w4-eyebrow">Strategy 1</p>
+      <h1 id="logger-heading">Logger service</h1>
+      <p class="w4-page-intro">
+        A service gives the application one place to format and send diagnostic
+        messages. Open the browser console, then trigger the example.
+      </p>
 
+      <div class="w4-grid w4-grid-split">
+        <article class="w4-panel">
+          <h2>Try it</h2>
+          <p>The button calls the service's log, warn, and error methods.</p>
+          <button type="button" class="w4-btn w4-btn-primary" (click)="writeMessages()">
+            Write log messages
+          </button>
+        </article>
+
+        <aside class="w4-panel" aria-live="polite">
+          <p class="w4-kicker">Observable result</p>
+          @if (messagesWritten) {
+            <h2>Messages written</h2>
+            <p>Check the browser console for one log, warning, and error entry.</p>
+          } @else {
+            <h2>Waiting for an action</h2>
+            <p>No messages are written merely by visiting this route.</p>
+          }
+        </aside>
+      </div>
+    </section>
   `
 })
 export class ComponentLoggerErrorHandlingComponent {
-  constructor(private logger: LoggerService) {
-    this.logger.log('This is a test message from the logger service.');
-    this.logger.warn('This is a test warning from the logger service.');
-    this.logger.error('This is a test error from the logger service.');
+  messagesWritten = false;
+
+  constructor(private readonly logger: LoggerService) {}
+
+  writeMessages(): void {
+    this.logger.log('Logger demo: informational message.');
+    this.logger.warn('Logger demo: warning message.');
+    this.logger.error('Logger demo: error message.');
+    this.messagesWritten = true;
   }
 }

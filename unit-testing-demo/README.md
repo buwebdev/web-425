@@ -1,27 +1,105 @@
-# UnitTestingDemo
+# Unit Testing Demo
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.3.
+Unit Testing Demo is a small standalone Angular application for practicing
+Jasmine assertions and Angular component tests. The page renders a title and a
+welcome message, while its specification demonstrates:
 
-## Development server
+- Creating a component with Angular `TestBed`.
+- Inspecting component properties and rendered HTML.
+- Testing real component methods with Jasmine matchers.
+- Verifying collaboration between component methods with a Jasmine spy.
+- Clicking a rendered button and testing the resulting component and DOM state.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+The visible page exercises the same component behavior as the test suite, so
+students can connect each Arrange-Act-Assert example to something concrete.
+The suite contains seven focused examples and runs through Karma in Firefox.
+The interface uses the course `w4.css` framework.
 
-## Code scaffolding
+## Technology versions
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Angular, Angular CLI, and Angular build tools: 22.0.7
+- Node.js: 24.18.0 through `.nvmrc` (`>=24.15.0 <25` supported)
+- npm: 11.16.0 used for the lockfile (npm 11 or newer required)
+- TypeScript: 6.0.3
+- RxJS: 7.8.2
+- Karma: 6.4.4 with Jasmine and Firefox
 
-## Build
+## Prerequisites
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Install the following software before setting up the application:
 
-## Running unit tests
+1. [Git](https://git-scm.com/downloads) to clone the repository.
+2. [NVM](https://github.com/nvm-sh/nvm#installing-and-updating) to install and
+   select the required Node.js version.
+3. [Firefox](https://www.mozilla.org/firefox/) to run the Karma test suite.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+You do not need to install Angular CLI globally. The project installs and uses
+its own CLI through the npm scripts.
 
-## Running end-to-end tests
+## Dependency policy
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Always use `npm ci` to install this project's dependencies. Do not run
+`npm install`, `npm update`, or `npm audit fix`. Do not add, remove, upgrade, or
+otherwise modify dependencies in `package.json` or `package-lock.json`. The
+course project depends on the exact, tested versions recorded in the lockfile.
 
-## Further help
+## Install the application
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+From the repository root, run:
+
+```bash
+cd unit-testing-demo
+nvm install
+nvm use
+npm ci
+```
+
+`nvm install` reads `.nvmrc` and installs Node.js 24.18.0 when necessary.
+`npm ci` installs the exact dependency versions recorded in
+`package-lock.json`.
+
+## Start the development server
+
+```bash
+npm start
+```
+
+Open `http://localhost:4200/` in a browser. The development server watches the
+source files and reloads the application after changes.
+
+Stop the server with `Ctrl+C`.
+
+## Build the application
+
+Create an optimized production build with:
+
+```bash
+npm run build
+```
+
+The generated files are written to `dist/unit-testing-demo/`.
+
+To continuously rebuild with the development configuration, run:
+
+```bash
+npm run watch
+```
+
+## Run the tests
+
+Run all seven tests once in headless Firefox:
+
+```bash
+npm test -- --watch=false --browsers=FirefoxHeadless
+```
+
+For interactive watch mode, run `npm test`. Karma opens Firefox and reruns the
+tests when source or specification files change.
+
+## Useful project files
+
+- `src/app/app.component.ts` defines the standalone demonstration component.
+- `src/app/app.component.spec.ts` contains the seven Jasmine examples.
+- `src/styles/w4.css` contains the course UI framework.
+- `karma.conf.js` configures the Karma test runner and browser launchers.
+- `angular.json` contains the build, development-server, and test targets.

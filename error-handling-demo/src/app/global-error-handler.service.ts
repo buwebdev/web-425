@@ -1,13 +1,20 @@
-import { Injectable, ErrorHandler } from '@angular/core';
+import { ErrorHandler, Injectable } from '@angular/core';
+import { LoggerService } from './logger.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GlobalErrorHandlerService implements ErrorHandler {
+  constructor(private readonly logger: LoggerService) {}
 
-  constructor() { }
+  handleError(error: unknown): void {
+    const normalizedError = error instanceof Error
+      ? error
+      : new Error(String(error));
 
-  handleError(error: any): void {
-    console.error(`An error occurred and was caught by the global error handler: ${error}`);
+    this.logger.error(
+      `Global error handler: ${normalizedError.message}`,
+      normalizedError.stack
+    );
   }
 }

@@ -1,27 +1,106 @@
-# BasicRouting
+# Basic Routing
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.3.
+Basic Routing is a focused standalone Angular application for learning how URL
+paths, components, links, and `RouterOutlet` work together. It includes a
+default page, active navigation links, a redirect, and a wildcard Not Found
+page.
 
-## Development server
+The `/course` page demonstrates how TypeScript passes static data to a routed
+component. The route defines values in its `data` property, and
+`CourseComponent` reads them through `ActivatedRoute.snapshot.data` before
+binding them in the template.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+The interface uses the course `w4.css` framework so students can concentrate
+on routing rather than rebuilding application-level styling.
 
-## Code scaffolding
+## Technology versions
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Angular, Angular CLI, and Angular build tools: 22.0.7
+- Node.js: 24.18.0 through `.nvmrc` (`>=24.15.0 <25` supported)
+- npm: 11.16.0 used for the lockfile (npm 11 or newer required)
+- TypeScript: 6.0.3
+- RxJS: 7.8.2
+- Karma: 6.4.4 with Jasmine and Firefox
 
-## Build
+## Prerequisites
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Install the following software before setting up the application:
 
-## Running unit tests
+1. [Git](https://git-scm.com/downloads) to clone the repository.
+2. [NVM](https://github.com/nvm-sh/nvm#installing-and-updating) to install and
+   select the required Node.js version.
+3. [Firefox](https://www.mozilla.org/firefox/) to run the Karma test suite.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+You do not need to install Angular CLI globally. The project installs and uses
+its own CLI through the npm scripts.
 
-## Running end-to-end tests
+## Dependency policy
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Always use `npm ci` to install this project's dependencies. Do not run
+`npm install`, `npm update`, or `npm audit fix`. Do not add, remove, upgrade, or
+otherwise modify dependencies in `package.json` or `package-lock.json`. The
+course project depends on the exact, tested versions recorded in the lockfile.
 
-## Further help
+## Install the application
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+From the repository root, run:
+
+```bash
+cd basic-routing
+nvm install
+nvm use
+npm ci
+```
+
+`nvm install` reads `.nvmrc` and installs Node.js 24.18.0 when necessary.
+`npm ci` installs the exact dependency versions recorded in
+`package-lock.json`.
+
+## Start the development server
+
+```bash
+npm start
+```
+
+Open `http://localhost:4200/` in a browser. The development server watches the
+source files and reloads the application after changes.
+
+Stop the server with `Ctrl+C`.
+
+## Build the application
+
+Create an optimized production build with:
+
+```bash
+npm run build
+```
+
+The generated files are written to `dist/basic-routing/`.
+
+To continuously rebuild with the development configuration, run:
+
+```bash
+npm run watch
+```
+
+## Run the tests
+
+Run the tests once in headless Firefox:
+
+```bash
+npm test -- --watch=false --browsers=FirefoxHeadless
+```
+
+For interactive watch mode, run `npm test`. Karma opens Firefox and reruns the
+tests when source or specification files change.
+
+## Useful project files
+
+- `src/app/app.component.ts` defines the standalone root component.
+- `src/app/app.routes.ts` contains the application route configuration.
+- `src/app/course/course.component.ts` reads and displays TypeScript route data.
+- `src/app/not-found/not-found.component.ts` demonstrates the wildcard route.
+- `src/app/app.config.ts` registers Angular application providers.
+- `src/app/course/course.component.spec.ts` verifies the route-data flow.
+- `src/styles/w4.css` contains the course UI framework.
+- `angular.json` contains the build, development-server, and test targets.

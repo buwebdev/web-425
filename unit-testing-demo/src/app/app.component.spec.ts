@@ -1,58 +1,64 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
+  let fixture: ComponentFixture<AppComponent>;
+  let component: AppComponent;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent],
+      imports: [AppComponent]
     }).compileComponents();
+
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
   });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+  it('creates the application', () => {
+    expect(component).toBeTruthy();
   });
 
-  it(`should have the 'Unit Testing Demo' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('Unit Testing Demo');
+  it('uses the Unit Testing Demo title', () => {
+    expect(component.title).toBe('Unit Testing Demo');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+  it('renders the title and welcome message', () => {
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Unit Testing Demo');
+    const page = fixture.nativeElement as HTMLElement;
+
+    expect(page.querySelector('h1')?.textContent).toContain(component.title);
+    expect(page.textContent).toContain(component.welcome);
   });
 
-  // Simple addition test
-  it('should add two numbers correctly', () => {
-    const a = 5;
-    const b = 3;
-    const result = a + b;
-    expect(result).toBe(8);
+  it('adds two numbers using application code', () => {
+    expect(component.add(5, 3)).toBe(8);
   });
 
-  // Simple subtraction test
-  it('should subtract two numbers correctly', () => {
-    const a = 10;
-    const b = 4;
-    const result = a - b;
-    expect(result).toEqual(6);
+  it('subtracts two numbers using application code', () => {
+    expect(component.subtract(10, 4)).toBe(6);
   });
 
-  // Check if a function has been called (using a spy)
-  it('should check if a method has been called', () => {
-    const spyObj = jasmine.createSpyObj('AppComponent', ['dummyMethod']);
-    spyObj.dummyMethod();
-    expect(spyObj.dummyMethod).toHaveBeenCalled();
+  it('calls announce with the expected message', () => {
+    const announceSpy = spyOn(component, 'announce').and.callThrough();
+
+    component.runAnnouncement();
+
+    expect(announceSpy).toHaveBeenCalledOnceWith(
+      'The component method was called successfully.'
+    );
+    expect(component.announcement).toBe('The component method was called successfully.');
   });
 
-  // Check if a value is truthy
-  it('should check if a value is truthy', () => {
-    const isAvailable = true;
-    expect(isAvailable).toBeTruthy();
+  it('updates the rendered availability after a button click', () => {
+    fixture.detectChanges();
+    const page = fixture.nativeElement as HTMLElement;
+    const button = page.querySelector<HTMLButtonElement>('[data-testid="availability-button"]');
+
+    button?.click();
+    fixture.detectChanges();
+
+    expect(component.isAvailable).toBeFalse();
+    expect(page.querySelector('[data-testid="availability-status"]')?.textContent)
+      .toContain('Unavailable');
   });
 });

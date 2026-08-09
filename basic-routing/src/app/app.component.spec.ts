@@ -1,29 +1,34 @@
 import { TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { AppComponent } from './app.component';
+import { routes } from './app.routes';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent],
+      providers: [provideRouter(routes)]
     }).compileComponents();
   });
 
-  it('should create the app', () => {
+  it('creates the routing shell', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+
+    expect(fixture.componentInstance).toBeTruthy();
   });
 
-  it(`should have the 'basic-routing' title`, () => {
+  it('uses a student-friendly application title', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('basic-routing');
+
+    expect(fixture.componentInstance.title).toBe('Basic Routing Demo');
   });
 
-  it('should render title', () => {
+  it('renders navigation and a router outlet', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, basic-routing');
+    const page = fixture.nativeElement as HTMLElement;
+
+    expect(page.querySelector('nav[aria-label="Primary navigation"]')).toBeTruthy();
+    expect(page.querySelector('router-outlet')).toBeTruthy();
   });
 });

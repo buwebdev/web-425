@@ -1,82 +1,54 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterLink, RouterLinkActive, RouterOutlet],
   template: `
-    <div class="container">
-      <header>
-        <h1>
-          {{ title }}
-        </h1>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
 
+    <div class="w4-shell">
+      <header class="w4-header">
+        <div class="w4-container w4-header-inner">
+          <a class="w4-brand" routerLink="/" aria-label="Error Handling Demo home">
+            {{ title }}
+          </a>
+          <span class="w4-badge">WEB 425</span>
+        </div>
+
+        <nav class="w4-navbar" aria-label="Error handling examples">
+          <div class="w4-container w4-nav">
+            <a
+              class="w4-nav-link"
+              routerLink="/"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+            >Overview</a>
+            <a class="w4-nav-link" routerLink="/logger" routerLinkActive="active">Logger</a>
+            <a class="w4-nav-link" routerLink="/component-error" routerLinkActive="active">Component Error</a>
+            <a class="w4-nav-link" routerLink="/global-error" routerLinkActive="active">Global Error</a>
+          </div>
+        </nav>
       </header>
 
-      <main>
-        <nav class="navbar">
-          <ul>
-            <li><a href="/logger">Logger</a></li>
-            <li><a href="/component-error">Component Error</a></li>
-            <li><a href="/global-error">Global Error</a></li>
-          </ul>
-        </nav>
-
+      <main id="main-content" class="w4-container w4-main">
         <router-outlet />
       </main>
 
-      <footer>
-        &copy; 2024 - Angular Error Handling Demo
+      <footer class="w4-footer">
+        <div class="w4-container w4-footer-inner">
+          <div>
+            <p class="w4-footer-brand">Error Handling Demo</p>
+            <p class="w4-footer-copy">Trigger, observe, and compare each strategy.</p>
+          </div>
+          <p class="w4-footer-copyright">&copy; {{ currentYear }} WEB 425</p>
+        </div>
       </footer>
     </div>
-  `,
-  styles: `
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      width: 65%;
-      margin: 0 auto;
-    }
-
-    header {
-      background-color: #f8f9fa;
-      padding: 10px;
-      width: 100%;
-      text-align: center;
-    }
-
-    main {
-      width: 100%;
-      min-height: 500px;
-    }
-
-    .navbar ul {
-      display: block;
-      list-style-type: none;
-      padding: 0;
-    }
-
-    .navbar {
-      text-align: center;
-    }
-
-    li {
-      display: inline;
-      margin-right: 10px;
-    }
-
-    footer {
-      background-color: #f8f9fa;
-      padding: 10px;
-      width: 100%;
-      height: 80px;
-      text-align: center;
-    }
   `
 })
 export class AppComponent {
-  title = 'Error Handling Demo';
+  readonly title = 'Error Handling Demo';
+  readonly currentYear = new Date().getFullYear();
 }

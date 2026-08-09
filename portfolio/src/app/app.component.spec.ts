@@ -1,29 +1,39 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
+  let fixture: ComponentFixture<AppComponent>;
+  let component: AppComponent;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent],
+      imports: [AppComponent]
     }).compileComponents();
-  });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it(`should have the 'portfolio' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('portfolio');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, portfolio');
+  });
+
+  it('creates the portfolio starter', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('renders the replaceable student name', () => {
+    const page = fixture.nativeElement as HTMLElement;
+
+    expect(page.querySelector('h1')?.textContent).toContain(component.studentName);
+  });
+
+  it('renders every skill from the component data', () => {
+    const skillItems = fixture.nativeElement.querySelectorAll('.skill-list li');
+
+    expect(skillItems.length).toBe(component.skills.length);
+  });
+
+  it('renders every project from the component data', () => {
+    const projectCards = fixture.nativeElement.querySelectorAll('.project-card');
+
+    expect(projectCards.length).toBe(component.projects.length);
   });
 });
